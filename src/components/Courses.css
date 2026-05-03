@@ -1,0 +1,105 @@
+.courses {
+  background: white;
+}
+
+.courses-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  align-items: start;
+  margin-top: 3rem;
+}
+
+.courses-image {
+  overflow: hidden;
+  border-radius: 10px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+}
+
+.courses-image img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.courses-details h3 {
+  font-size: 1.8rem;
+  color: var(--primary-color);
+  margin-bottom: 1rem;
+}
+
+.courses-details > p {
+  color: var(--text-light);
+  line-height: 1.8;
+  margin-bottom: 2rem;
+}
+
+.courses-steps {
+  margin-bottom: 2rem;
+}
+
+.step {
+  display: flex;
+  gap: 15px;
+  margin-bottom: 1.5rem;
+}
+
+.step-number {
+  background: var(--secondary-color);
+  color: white;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+.step-content h4 {
+  color: var(--primary-color);
+  margin-bottom: 0.5rem;
+}
+
+.step-content p {
+  color: var(--text-light);
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+.courses-benefits {
+  background: var(--light-bg);
+  padding: 20px;
+  border-radius: 8px;
+  border-left: 4px solid var(--secondary-color);
+}
+
+.courses-benefits h4 {
+  color: var(--primary-color);
+  margin-bottom: 1rem;
+}
+
+.courses-benefits ul {
+  list-style: none;
+}
+
+.courses-benefits li {
+  color: var(--text-light);
+  padding: 0.5rem 0;
+  font-size: 0.95rem;
+}
+
+@media (max-width: 768px) {
+  .courses-content {
+    grid-template-columns: 1fr;
+  }
+
+  .courses-image {
+    order: 2;
+  }
+
+  .courses-details {
+    order: 1;
+  }
+}
