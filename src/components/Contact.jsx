@@ -20,9 +20,34 @@ export default function Contact() {
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    console.log('Form submitted:', formData)
-    alert('Thank you for your inquiry! We will contact you soon.')
-    setFormData({ name: '', email: '', phone: '', destination: 'UK', message: '' })
+    
+    // Send form data to Formspree
+    fetch('https://formspree.io/f/mojrjyne', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        name: formData.name,
+        email: formData.email,
+        phone: formData.phone,
+        destination: formData.destination,
+        message: formData.message,
+        _subject: `New Student Inquiry - ${formData.name} (${formData.destination})`
+      })
+    })
+    .then(response => {
+      if (response.ok) {
+        alert('Thank you for your inquiry! We will contact you soon.')
+        setFormData({ name: '', email: '', phone: '', destination: 'UK', message: '' })
+      } else {
+        alert('There was an error submitting your form. Please try again.')
+      }
+    })
+    .catch(error => {
+      console.error('Error:', error)
+      alert('There was an error submitting your form. Please try again.')
+    })
   }
 
   return (
